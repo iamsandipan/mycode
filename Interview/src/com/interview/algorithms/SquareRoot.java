@@ -11,15 +11,15 @@ public class SquareRoot {
 			return half;
 		}
 		pres = pres/10;
-		double half1 = recurseUppre(val, half);
+		double half1 = recurseUpper(val, half);
 		half1 = recurseLower(val, half1);
 		return recurse(val, half, pres);
 	}
 
-	private double recurseUppre(double val, double half) {
+	private double recurseUpper(double val, double half) {
 		if(half*half > val){
 			half -= 1;
-			return recurseUppre(val, half);
+			return recurseUpper(val, half);
 		}
 		return half;
 	}

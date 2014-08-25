@@ -6,24 +6,26 @@ public class MergeSort {
 		MergeSort q = new MergeSort();
 		int arr[] = new int[] { 1,2,23,3,20,52,65};
 		q.sort(arr);
-		System.out.println(arr);
+		for(int s : arr){
+			System.out.print(s);
+			System.out.print(", ");
+
+		}
 	}
 	
-	
-	
 	private int[] numbers;
-	  private int[] helper;
+	private int[] helper;
 
-	  private int number;
+	private int number;
 
-	  public void sort(int[] values) {
+	public void sort(int[] values) {
 	    this.numbers = values;
 	    number = values.length;
 	    this.helper = new int[number];
 	    mergesort(0, number - 1);
-	  }
+	}
 
-	  private void mergesort(int low, int high) {
+	 private void mergesort(int low, int high) {
 	    // check if low is smaller then high, if not then the array is sorted
 	    if (low < high) {
 	      // Get the index of the element which is in the middle
