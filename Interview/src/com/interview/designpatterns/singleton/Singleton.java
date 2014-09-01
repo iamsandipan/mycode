@@ -1,0 +1,12 @@
+package com.interview.designpatterns.singleton;
+
+public class Singleton {
+	
+	private  static Singleton singleton = new Singleton();
+	private Singleton(){};
+	
+	public static Singleton getIstance(){
+		return singleton;
+	}
+
+}

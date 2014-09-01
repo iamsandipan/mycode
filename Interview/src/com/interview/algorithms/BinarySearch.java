@@ -6,7 +6,7 @@ public class BinarySearch {
 		BinarySearch q = new BinarySearch();
 		int arr[] = new int[] { 1,2,3,20,52,65};
 		int j = q. binarySearchANumberWhichIsGreaterThanAGivenNumber(arr, 15, 0, arr.length -1 );
-		System.out.println(arr);
+		System.out.println(j);
 	}
 	
 	private int binarySearch(int[] array, int value, int left, int right) {

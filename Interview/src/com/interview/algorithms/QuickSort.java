@@ -4,10 +4,10 @@ public class QuickSort {
 
 	public static void main(String [] args){
 		QuickSort q = new QuickSort();
-		int arr[] = new int[] { 1,2,1};
-		q.quickSortFinkKthSmallest(arr, 0, arr.length -1 , 2);
+		int arr[] = new int[] {1,2,1,3};
+		q.quickSortFinkKthSmallest(arr, 0, arr.length -1, 2 );
 		for(int i = 0; i < arr.length; i++){
-			System.out.print(i + ", ");
+			System.out.print(arr[i] + ", ");
 
 		}
 	}
@@ -15,7 +15,7 @@ public class QuickSort {
 	private int partition(int arr[], int left, int right)
 
 	{
-
+		
 		int pivot = arr[(left + right) / 2];
 
 		while (left < right) {
@@ -30,6 +30,9 @@ public class QuickSort {
 
 			if (left <= right) {
 				swap(arr , left, right);
+				left++;
+				right--;
+				
 			}
 
 		}
@@ -41,8 +44,7 @@ public class QuickSort {
 		int tmp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = tmp;
-		i++;
-		j--;
+		
 	}
 
 	private boolean isPivotMore(int[] arr, int j, int pivot) {
@@ -53,8 +55,9 @@ public class QuickSort {
 		return arr[i] < pivot;
 	}
 
-	private void quickSort(int arr[], int left, int right) {
-
+	public void quickSort(int arr[], int left, int right) {
+		
+		
 		int index = partition(arr, left, right);
 
 		if (left < index - 1){
