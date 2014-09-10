@@ -22,7 +22,7 @@ class ConcreteAdvancedMediaPlayer implements AdvancedMediaPlayer{
 }
 
 
-class MediaPlayerAdapter implements MediaPlayer{
+class MediaPlayerAdapter implements MediaPlayer, AdvancedMediaPlayer{
 	private AdvancedMediaPlayer mediaPlayer;
 	
 	@Override
@@ -32,6 +32,18 @@ class MediaPlayerAdapter implements MediaPlayer{
 		}else if(playerType.endsWith("mp3")){
 			mediaPlayer.playMp3();
 		}
+	}
+
+	@Override
+	public void playVlc() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void playMp3() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -38,6 +38,15 @@ public class GraphNode {
 		return unvisiteNodes;
 	}
 
+	public GraphNode getUnvisitedOneNextNode() {
+		for(GraphNode graphNode : nextNodes){
+			if(!graphNode.isVisited()){
+				return graphNode;
+			}
+		}
+		return null; 
+	}
+
 
 	public String getName() {
 		return name;

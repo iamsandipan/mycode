@@ -2,6 +2,7 @@ package com.interview.algorithms;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -9,7 +10,7 @@ import java.util.Stack;
 public class Graph 
 {
 	public Node rootNode;
-	public ArrayList nodes=new ArrayList();
+	public List<Node> nodes=new ArrayList<Node>();
 	public int[][] adjMatrix;//Edges will be represented as adjacency Matrix
 	int size;
 	public void setRootNode(Node n)

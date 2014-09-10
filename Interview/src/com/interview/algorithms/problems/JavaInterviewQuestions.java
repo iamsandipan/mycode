@@ -13,16 +13,18 @@ public class JavaInterviewQuestions {
 		
 		public static void main(String [] args){
 			JavaInterviewQuestions q = new JavaInterviewQuestions();
-			System.out.println(q.longestPalindrome1("xabccba"));
-			q.matrixSearch();
+			int [] nums = {1,2,4,6,7};
+			System.out.println(q.isPalindrome("aba"));
+			//q.matrixSearch();
 		}
 	
+		
+		
 		
 		public static String longestPalindrome1(String s) {
 			int maxPalinLength = 0;
 			String longestPalindrome = null;
 			int length = s.length();
-		 
 			// check all possible sub strings
 			for (int i = 0; i < length; i++) {
 				for (int j = i + 1; j < length; j++) {
@@ -45,12 +47,16 @@ public class JavaInterviewQuestions {
 			if(s == null){
 				return false;
 			}
-			for (int i = 0; i < s.length() - 1; i++) {
-				if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+			int i = 0;
+			int j = s.length() - 1;
+			int lastIndex = j;
+			while(i < j){
+				if (s.charAt(i) != s.charAt(lastIndex - i)) {
 					return false;
 				}
+				i++;
+				j--;
 			}
-		 
 			return true;
 		}
 		
@@ -79,14 +85,14 @@ public class JavaInterviewQuestions {
 		}
 		
 		public int findRow(int [] numbers, int start, int end, int number){
-			
-			if (start > end){
+			System.out.println("Start  : " + start + " End :  " + end);
+			/*if (start >= end){
 	            return start;
-			}
+			}*/
 			
 			int index = start + (end - start)/2;
 			
-			if(numbers[index] == number){
+			if(numbers[index] <= number && numbers[index+1] >= number ){
 				return number;
 			}
 			

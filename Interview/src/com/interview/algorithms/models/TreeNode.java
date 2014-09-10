@@ -4,6 +4,7 @@ public class TreeNode {
 	private int value;
 	private TreeNode left;
 	private  TreeNode right;
+	private boolean visited;
 
 	public TreeNode(int value) {
 		this.setValue(value);
@@ -32,5 +33,27 @@ public class TreeNode {
 	public void setRight(TreeNode right) {
 		this.right = right;
 	}
+
+	public boolean isVisited() {
+		return visited;
+	}
+
+	public void setVisited(boolean visited) {
+		this.visited = visited;
+	}
+	
+	public TreeNode getUnvisitedNextNode(){
+		
+		if(this.left != null && this.left.visited == false){
+			return this.left;
+		}
+		
+		if((this.left == null) && (this.right != null) && this.right.visited == false){
+			return this.right;
+		}
+		
+		return null;
+	}
+	
 
 }
