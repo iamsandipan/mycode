@@ -28,7 +28,9 @@ public class GeneratePrime {
 			if (primeFound) {
 				primes.add(x);
 			}
-			x = computeNextNumber(dx, x);
+			int delta = 6 - dx;
+			dx = delta;
+			x = x + delta;
 		}
 		for (int s : primes) {
 			System.out.print(s + ",");
@@ -59,9 +61,5 @@ public class GeneratePrime {
 		return primeFound;
 	}
 
-	private int computeNextNumber(int dx, int x) {
-		int delta = 6 - dx;
-		x = x + delta;
-		return x;
-	}
+	
 }

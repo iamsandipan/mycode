@@ -4,8 +4,8 @@ public class QuickSort {
 
 	public static void main(String [] args){
 		QuickSort q = new QuickSort();
-		int arr[] = new int[] {1,2,1,3};
-		q.quickSortFinkKthSmallest(arr, 0, arr.length -1, 2 );
+		int arr[] = new int[] {1,2,4,3,5,9,8,15,12,10,11};
+		q.quickSortFinkKthSmallest(arr, 0, arr.length -1,2 );
 		for(int i = 0; i < arr.length; i++){
 			System.out.print(arr[i] + ", ");
 
@@ -20,11 +20,11 @@ public class QuickSort {
 
 		while (left < right) {
 
-			while (isPivotLess(arr, left, pivot)){
+			while (isPivotMore(arr, left, pivot)){
 				left++;
 			}
 
-			while (isPivotMore(arr, right, pivot)){
+			while (isPivotLess(arr, right, pivot)){
 				right--;
 			}
 
@@ -47,11 +47,11 @@ public class QuickSort {
 		
 	}
 
-	private boolean isPivotMore(int[] arr, int j, int pivot) {
+	private boolean isPivotLess(int[] arr, int j, int pivot) {
 		return arr[j] > pivot;
 	}
 
-	private boolean isPivotLess(int[] arr, int i, int pivot) {
+	private boolean isPivotMore(int[] arr, int i, int pivot) {
 		return arr[i] < pivot;
 	}
 
@@ -71,18 +71,15 @@ public class QuickSort {
 	}
 	
 	private void quickSortFinkKthSmallest(int arr[], int left, int right, int k) {
-		if(left > k ||  k < right){
-			return;
-		}
-		
 		int index = partition(arr, left, right);
-
-		if (left < index - 1 ){
-			quickSort(arr, left, index - 1);
-		}
-
-		if (index < right){
-			quickSort(arr, index, right);
+		if(k > left && k < right){
+			if (left < index - 1 ){
+				quickSort(arr, left, index - 1);
+			}
+	
+			if (index < right){
+				quickSort(arr, index, right);
+			}
 		}
 		System.out.println("Index is " + index);
 	}

@@ -35,18 +35,49 @@ public class BinarySearchTree {
 		}
 	}
 
+	private void insertRecWithoutRec(TreeNode rootnode, TreeNode node) {
+		boolean inserted = false;
+		TreeNode latestRoot = rootnode;
+		while(!inserted){
+			
+			if (latestRoot.getValue() > node.getValue()) {
+				if (latestRoot.getLeft() == null) {
+					latestRoot.setLeft(node);
+					inserted = true;
+				} else {
+					latestRoot = latestRoot.getLeft();
+				}
+			} else {
+				if (latestRoot.getRight() == null) {
+					latestRoot.setRight(node);
+					inserted = true;
+				} else {
+					latestRoot = latestRoot.getRight();
+				}
+			}
+		}
+		
+	}
+	
+	public void getNodesTillNthLevel(){
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
-
-		tree.insert(10);
-		tree.insert(11);
-		tree.insert(9);
-		tree.printPreorder();
-		tree.printPostorder();
+		TreeNode node1 = new TreeNode(9);
+		TreeNode node2 = new TreeNode(10);
+		TreeNode node3 = new TreeNode(11);
+		
+		tree.insertRecWithoutRec(node1, node2);
+		tree.insertRecWithoutRec(node1, node3);
+		tree.printPreorder(node1);
+		//tree.printPostorder();
 	}
 
-	public void printPreorder() {
-		printPreOrderRec(root);
+	public void printPreorder( TreeNode node) {
+		printPreOrderRec(node);
 		System.out.println("");
 	}
 

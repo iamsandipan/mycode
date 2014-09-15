@@ -24,7 +24,7 @@ public class SetOps {
 		set1.retainAll(set2);
 		System.out.println(set1);
 		SetOps dtb = new SetOps();
-	    dtb.printBinaryFormat(8.625);	
+	    dtb.printBinaryFormat(2.333);	
 	    //dtb.fibonacci();	
 	}
 	

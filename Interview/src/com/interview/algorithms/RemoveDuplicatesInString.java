@@ -12,7 +12,10 @@ public class RemoveDuplicatesInString<T> {
 		RemoveDuplicatesInString <Character> helo = new RemoveDuplicatesInString <Character>();
 		Character ch = 'c';
 		
-		helo.reverseString("H  elo");
+		//helo.reverseString("H  elo");
+		
+		System.out.println(helo.checkAnagrams("wallmart", "marktwall"));
+		
 	}
 	
 	public String reverseString(String  str){
@@ -52,11 +55,8 @@ public class RemoveDuplicatesInString<T> {
 	}
 	
 	public boolean checkAnagrams(String str, String str1){
-		Map<Character, Integer> charMap1 = new HashMap<Character, Integer>();
-		Map<Character, Integer> charMap2 = new HashMap<Character, Integer>();
-
-		populateCharMap(charMap1, str);
-		populateCharMap(charMap2, str);
+		Map<Character, Integer> charMap1 = populateCharMap(str);
+		Map<Character, Integer> charMap2 = populateCharMap(str1);
 		
 		if(charMap1.size() != charMap2.size()){
 			return false;
@@ -73,21 +73,23 @@ public class RemoveDuplicatesInString<T> {
 				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	
-	private void populateCharMap(Map<Character, Integer> map, String str){
-		
+	private Map<Character, Integer> populateCharMap( String str){
+		Map<Character, Integer> charMap = new HashMap<Character, Integer>();
 		for(int i = 0 ; i < str.length(); i ++ ){
 			Character ch = str.charAt(i);
-			Integer value = map.get(ch);
+			Integer value = charMap.get(ch);
 			if(value == null){
-				map.put(ch, 1);
+				charMap.put(ch, 1);
 			}else{
-				map.put(ch, value + 1);
+				charMap.put(ch, value + 1);
 			}
 		}
+		
+		return charMap;
 		
 		
 	}
