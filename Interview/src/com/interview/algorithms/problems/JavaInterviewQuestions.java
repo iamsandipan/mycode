@@ -1,6 +1,7 @@
 package com.interview.algorithms.problems;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,11 @@ public class JavaInterviewQuestions {
 			JavaInterviewQuestions q = new JavaInterviewQuestions();
 			int [] nums = {1,2,4,6,7};
 			System.out.println(q.isPalindrome("aba"));
+			BitSet bits1 = new BitSet();
+			BitSet bits2 = new BitSet();
+
+			bits1.set(4);
+			System.out.println(Integer.valueOf(bits1.toString()));
 			//q.matrixSearch();
 		}
 	
